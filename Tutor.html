@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial — Jogo de Sinais</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tela 3 — Tutorial</h1>
+    </header>
+
+    <main>
+        <h1 align="center">Tutorial</h1>
+        <p align="center">Observe o sinal e digite a resposta.</p>
+
+        <table border="1" width="65%" height="150" align="center">
+            <tr>
+                <td align="center">
+                    <!-- Espaço reservado para a imagem do sinal -->
+                </td>
+            </tr>
+        </table>
+
+        <br>
+
+        <form action="#resultado" method="get">
+
+            <table align="center">
+                <tr>
+                    <td><input type="text" name="letra1" size="2" maxlength="1"></td>
+                    <td><input type="text" name="letra2" size="2" maxlength="1"></td>
+                    <td><input type="text" name="letra3" size="2" maxlength="1"></td>
+                    <td><input type="text" name="letra4" size="2" maxlength="1"></td>
+                    <td><input type="text" name="letra5" size="2" maxlength="1"></td>
+                </tr>
+            </table>
+
+            <br>
+
+            <table border="1" align="center" cellpadding="10">
+                <tr>
+                    <td><button type="button">Q</button></td>
+                    <td><button type="button">W</button></td>
+                    <td><button type="button">E</button></td>
+                    <td><button type="button">R</button></td>
+                    <td><button type="button">T</button></td>
+                    <td><button type="button">Y</button></td>
+                    <td><button type="button">U</button></td>
+                    <td><button type="button">I</button></td>
+                    <td><button type="button">O</button></td>
+                    <td><button type="button">P</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button">A</button></td>
+                    <td><button type="button">S</button></td>
+                    <td><button type="button">D</button></td>
+                    <td><button type="button">F</button></td>
+                    <td><button type="button">G</button></td>
+                    <td><button type="button">H</button></td>
+                    <td><button type="button">J</button></td>
+                    <td><button type="button">K</button></td>
+                    <td><button type="button">L</button></td>
+                    <td><button type="button">Ç</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button">⇧</button></td>
+                    <td><button type="button">Z</button></td>
+                    <td><button type="button">X</button></td>
+                    <td><button type="button">C</button></td>
+                    <td><button type="button">V</button></td>
+                    <td><button type="button">B</button></td>
+                    <td><button type="button">N</button></td>
+                    <td><button type="button">M</button></td>
+                    <td colspan="2"><button type="reset">⌫</button></td>
+                </tr>
+            </table>
+
+            <br>
+
+            <table align="center" cellpadding="10">
+                <tr>
+                    <td>
+                        <details>
+                            <summary>Dica</summary>
+                            <p>A resposta possui 5 letras.</p>
+                        </details>
+                    </td>
+                    <td>
+                        <button type="submit">Verificar</button>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+        <hr>
+
+        <section id="resultado">
+            <p align="center">
+                <strong>Este é o modo de aprendizado.</strong>
+                Observe o sinal e descubra a palavra correspondente digitando.
+            </p>
+        </section>
+    </main>
+
+</body>
+</html>
