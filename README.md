@@ -11,5 +11,6 @@ Nossa ideia de site é criar um site em que ajude tantos pessoas sem surdez e ta
 
 Aqui seria a imagem que iremos usar em nosso projeto para executar os jogos
 
-![imagem de repositorio](sinais.jpg.jpeg)
+<img width="501" height="650" alt="linguagem-de-sinais-aprenda-algumas-palavras-e-frases-em-libras-2" src="https://github.com/user-attachments/assets/deada78b-2da5-4df5-af64-78f7496a0eca" />
+
 
