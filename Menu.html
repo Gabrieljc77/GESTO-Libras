@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author"
+        content="Pedro Schumacker, Gabriel Jardim, Rafael Jardim e Guilherme Tavora">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GESTO</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            padding: 30px;
+        }
+
+
+        .container {
+            width: 100%;
+            max-width: 1050px;
+            min-height: 350px;
+            margin: 0 auto;
+
+            border: 1px solid #999;
+            border-radius: 10px;
+
+            padding: 10px 20px 25px;
+        }
+
+        
+
+        .topo {
+            border-bottom: 1px solid #999;
+            padding-bottom: 8px;
+            margin-bottom: 5px;
+        }
+
+        .topo p {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+     
+
+        main {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        .subtitulo {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .descricao {
+            font-size: 14px;
+            margin-top: 12px;
+            margin-bottom: 15px;
+        }
+
+    
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            width: 315px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+
+            background-color: white;
+            color: black;
+
+            border: 1px solid #777;
+            border-radius: 6px;
+
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #eeeeee;
+        }
+
+        .icone {
+            font-size: 25px;
+        }
+
+        
+
+        .linha {
+            border: none;
+            border-top: 2px dotted #aaa;
+
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        
+
+        .integrantes {
+            margin-top: 5px;
+        }
+
+        .integrantes h2 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .integrantes p {
+            font-size: 14px;
+            margin: 3px;
+        }
+
+        .integrantes span {
+            display: inline-block;
+            width: 110px;
+            text-align: left;
+        }
+
+    
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            nav a {
+                width: 90%;
+            }
+
+            .linha {
+                width: 95%;
+            }
+
+            .integrantes span {
+                width: auto;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="topo">
+            <p>GESTO</p>
+        </div>
+
+        <main>
+
+            <h1>GESTO</h1>
+
+            <p class="subtitulo">
+                Aprenda Libras de forma divertida
+            </p>
+
+            <p class="descricao">
+                Assista ao sinal em Libras e descubra as palavras certas neste jogo interativo.
+            </p>
+
+            <nav>
+
+                <a href="Jogar.html">
+                    <span class="icone">▶️</span>
+                    <span>Jogar</span>
+                </a>
+
+                <a href="Tutor.html">
+                    <span class="icone">▢</span>
+                    <span>Tutorial</span>
+                </a>
+
+            </nav>
+
+
+        
+
+            <hr class="linha">
+
+
+
+            <section class="integrantes">
+
+                <h2>♧ Integrantes do grupo:</h2>
+
+                <p>
+                    <h3>Pedro Schumacker</h3>
+                    RA 10771366
+                </p>
+
+                <p>
+                    <h3>Rafael Jardim</h3>
+                    RA 10771392
+                </p>
+
+                <p>
+                    <h3>Gabriel Jardim</h3>
+                    RA 10771388
+                </p>
+
+                <p>
+                    <h3>Guilherme Tavora</h3>
+                    RA 10771396
+                </p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
