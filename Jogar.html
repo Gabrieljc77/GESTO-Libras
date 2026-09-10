@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="GESTO - Jogo educativo para aprender Libras de forma divertida.">
+
+    <title>GESTO - Jogo</title>
+
+
+    <link rel="stylesheet" href="Jogar.css">
+
+</head>
+
+
+<body>
+
+
+    <article class="container">
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <header>
+
+            <strong>GESTO</strong>
+
+            <p>
+                Aprenda Libras jogando
+            </p>
+
+        </header>
+
+
+        <main>
+
+
+            <!-- =================================================
+                 TÍTULO
+            ================================================== -->
+
+            <section class="titulo">
+
+                <h1>GESTO</h1>
+
+                <p class="subtitulo">
+                    Descubra as palavras em 6 tentativas
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATUS DO JOGO
+            ================================================== -->
+
+            <section
+                class="status"
+                aria-label="Informações da partida">
+
+
+                <article>
+
+                    <strong>Pontuação</strong>
+
+                    <span id="pontuacao">
+                        0
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <strong>Tentativas</strong>
+
+                    <span id="contador">
+                        0/6
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <strong>Dicas</strong>
+
+                    <span id="dicas">
+                        3
+                    </span>
+
+                </article>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 ÁREA DO JOGO
+            ================================================== -->
+
+            <section
+                class="game"
+                aria-label="Área principal do jogo">
+
+
+                <!-- =================================================
+                     TABULEIRO
+                ================================================== -->
+
+                <section class="board">
+
+
+                    <header>
+
+                        <h2>
+                            Palavras
+                        </h2>
+
+                    </header>
+
+
+                    <section class="words">
+
+
+                        <!-- ================================
+                             PALAVRA 1
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 1
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                        <!-- ================================
+                             PALAVRA 2
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 2
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                        <!-- ================================
+                             PALAVRA 3
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 3
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                        <!-- ================================
+                             PALAVRA 4
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 4
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                    </section>
+
+                </section>
+
+
+                <!-- =================================================
+                     TECLADO
+                ================================================== -->
+
+                <section class="keyboard-panel">
+
+
+                    <h2>
+                        Escolha as letras
+                    </h2>
+
+
+                    <section
+                        class="keyboard"
+                        aria-label="Teclado de letras">
+
+
+                        <!-- PRIMEIRA LINHA -->
+
+                        <nav class="keyboard-row">
+
+                            <button type="button">Q</button>
+                            <button type="button">W</button>
+                            <button type="button">E</button>
+                            <button type="button">R</button>
+                            <button type="button">T</button>
+                            <button type="button">Y</button>
+                            <button type="button">U</button>
+                            <button type="button">I</button>
+                            <button type="button">O</button>
+                            <button type="button">P</button>
+
+                        </nav>
+
+
+                        <!-- SEGUNDA LINHA -->
+
+                        <nav class="keyboard-row">
+
+                            <button type="button">A</button>
+                            <button type="button">S</button>
+                            <button type="button">D</button>
+                            <button type="button">F</button>
+                            <button type="button">G</button>
+                            <button type="button">H</button>
+                            <button type="button">J</button>
+                            <button type="button">K</button>
+                            <button type="button">L</button>
+
+                        </nav>
+
+
+                        <!-- TERCEIRA LINHA -->
+
+                        <nav class="keyboard-row">
+
+                            <button type="button">Z</button>
+                            <button type="button">X</button>
+                            <button type="button">C</button>
+                            <button type="button">V</button>
+                            <button type="button">B</button>
+                            <button type="button">N</button>
+                            <button type="button">M</button>
+
+                        </nav>
+
+
+                    </section>
+
+
+                    <!-- =================================================
+                         CONTROLES
+                    ================================================== -->
+
+                    <form class="controls">
+
+                        <button
+                            type="reset"
+                            class="btn-apagar">
+
+                            Apagar
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn-enviar">
+
+                            Enviar
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- =================================================
+                         MENSAGEM
+                    ================================================== -->
+
+                    <p
+                        id="mensagem"
+                        aria-live="polite">
+                    </p>
+
+
+                    <!-- =================================================
+                         LEGENDA
+                    ================================================== -->
+
+                    <aside class="legend">
+
+                        <span>
+
+                            <i class="green"></i>
+
+                            Correta
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="yellow"></i>
+
+                            Outra posição
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="gray"></i>
+
+                            Ausente
+
+                        </span>
+
+                    </aside>
+
+
+                </section>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 RODAPÉ
+            ================================================== -->
+
+            <footer>
+
+                Use as letras para descobrir as 4 palavras.
+                Você tem 6 tentativas.
+
+            </footer>
+
+
+        </main>
+
+    </article>
+
+
+    <script>
+
+        /* =====================================================
+           PALAVRAS DO JOGO
+        ===================================================== */
+
+        const palavras = [
+
+            "CASA",
+            "LIVR",
+            "AMOR",
+            "SINA"
+
+        ];
+
+
+        /* =====================================================
+           ELEMENTOS DA PÁGINA
+        ===================================================== */
+
+        const teclado =
+            document.querySelectorAll(
+                ".keyboard button"
+            );
+
+
+        const letras =
+            document.querySelectorAll(
+                ".letter"
+            );
+
+
+        const enviar =
+            document.querySelector(
+                ".btn-enviar"
+            );
+
+
+        const apagar =
+            document.querySelector(
+                ".btn-apagar"
+            );
+
+
+        const contador =
+            document.querySelector(
+                "#contador"
+            );
+
+
+        const pontuacao =
+            document.querySelector(
+                "#pontuacao"
+            );
+
+
+        const mensagem =
+            document.querySelector(
+                "#mensagem"
+            );
+
+
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
+        let tentativaAtual = 0;
+
+        let palavraAtual = 0;
+
+        let letrasDigitadas = [];
+
+        let pontos = 0;
+
+
+        /* =====================================================
+           ENCONTRAR AS CASAS DA TENTATIVA ATUAL
+        ===================================================== */
+
+        function encontrarCasasAtuais() {
+
+            const inicio =
+                tentativaAtual * 4;
+
+            const fim =
+                inicio + 4;
+
+            return Array.from(
+                letras
+            ).slice(
+                inicio,
+                fim
+            );
+        }
+
+
+        /* =====================================================
+           ATUALIZAR TABULEIRO
+        ===================================================== */
+
+        function atualizarTabuleiro() {
+
+            const casas =
+                encontrarCasasAtuais();
+
+
+            casas.forEach(
+                (casa, indice) => {
+
+                    casa.textContent =
+                        letrasDigitadas[indice]
+                        || "";
+
+
+                    casa.classList.toggle(
+                        "filled",
+                        Boolean(
+                            letrasDigitadas[indice]
+                        )
+                    );
+
+                }
+            );
+        }
+
+
+        /* =====================================================
+           ADICIONAR LETRA
+        ===================================================== */
+
+        function adicionarLetra(letra) {
+
+            if (
+                letrasDigitadas.length >= 4
+                ||
+                tentativaAtual >= 6
+            ) {
+
+                return;
+            }
+
+
+            letrasDigitadas.push(
+                letra
+            );
+
+
+            atualizarTabuleiro();
+        }
+
+
+        /* =====================================================
+           CLICAR NO TECLADO
+        ===================================================== */
+
+        teclado.forEach(
+            botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        adicionarLetra(
+                            botao.textContent
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           TECLADO FÍSICO
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            evento => {
+
+                const tecla =
+                    evento.key.toUpperCase();
+
+
+                if (
+                    /^[A-Z]$/.test(tecla)
+                ) {
+
+                    adicionarLetra(
+                        tecla
+                    );
+                }
+
+
+                if (
+                    evento.key === "Backspace"
+                ) {
+
+                    removerLetra();
+                }
+
+
+                if (
+                    evento.key === "Enter"
+                ) {
+
+                    verificarTentativa();
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           REMOVER LETRA
+        ===================================================== */
+
+        function removerLetra() {
+
+            letrasDigitadas.pop();
+
+            atualizarTabuleiro();
+        }
+
+
+        /* =====================================================
+           BOTÃO APAGAR
+        ===================================================== */
+
+        apagar.addEventListener(
+            "click",
+            evento => {
+
+                evento.preventDefault();
+
+                removerLetra();
+
+            }
+        );
+
+
+        /* =====================================================
+           BOTÃO ENVIAR
+        ===================================================== */
+
+        enviar.addEventListener(
+            "click",
+            evento => {
+
+                evento.preventDefault();
+
+                verificarTentativa();
+
+            }
+        );
+
+
+        /* =====================================================
+           VERIFICAR TENTATIVA
+        ===================================================== */
+
+        function verificarTentativa() {
+
+            if (
+                letrasDigitadas.length !== 4
+            ) {
+
+                mensagem.textContent =
+                    "Digite 4 letras antes de enviar.";
+
+                return;
+            }
+
+
+            const tentativa =
+                letrasDigitadas.join("");
+
+
+            const palavra =
+                palavras[palavraAtual];
+
+
+            const casas =
+                encontrarCasasAtuais();
+
+
+            casas.forEach(
+                (casa, indice) => {
+
+                    const letra =
+                        tentativa[indice];
+
+
+                    if (
+                        letra ===
+                        palavra[indice]
+                    ) {
+
+                        casa.classList.add(
+                            "correct"
+                        );
+
+                    }
+
+                    else if (
+                        palavra.includes(
+                            letra
+                        )
+                    ) {
+
+                        casa.classList.add(
+                            "present"
+                        );
+
+                    }
+
+                    else {
+
+                        casa.classList.add(
+                            "wrong"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =================================================
+               PALAVRA CORRETA
+            ================================================= */
+
+            if (
+                tentativa === palavra
+            ) {
+
+                pontos += 100;
+
+                pontuacao.textContent =
+                    pontos;
+
+
+                mensagem.textContent =
+                    "Muito bem! Palavra correta!";
+
+
+                palavraAtual++;
+
+            }
+
+            else {
+
+                mensagem.textContent =
+                    "Continue tentando!";
+            }
+
+
+            tentativaAtual++;
+
+
+            contador.textContent =
+                `${tentativaAtual}/6`;
+
+
+            letrasDigitadas = [];
+
+
+            /* =================================================
+               FINAL DO JOGO
+            ================================================= */
+
+            if (
+                palavraAtual >=
+                palavras.length
+            ) {
+
+                mensagem.textContent =
+                    "🎉 Parabéns! Você completou o GESTO!";
+
+
+                bloquearTeclado();
+
+                return;
+            }
+
+
+            if (
+                tentativaAtual >= 6
+            ) {
+
+                mensagem.textContent =
+                    "Fim das tentativas!";
+
+
+                bloquearTeclado();
+            }
+
+        }
+
+
+        /* =====================================================
+           BLOQUEAR TECLADO
+        ===================================================== */
+
+        function bloquearTeclado() {
+
+            teclado.forEach(
+                botao => {
+
+                    botao.disabled = true;
+
+                }
+            );
+
+
+            enviar.disabled = true;
+        }
+
+
+        /* =====================================================
+           INICIALIZAÇÃO
+        ===================================================== */
+
+        atualizarTabuleiro();
+
+    </script>
+
+
+</body>
+
+</html>
