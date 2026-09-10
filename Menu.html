@@ -20,28 +20,46 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: white;
+            min-height: 100vh;
+
+            font-family: "Trebuchet MS", Arial, sans-serif;
+
+            background-color: #11131a;
+            color: #f5f5f5;
+
             padding: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
 
+
+        /* CONTAINER PRINCIPAL */
 
         .container {
             width: 100%;
             max-width: 1050px;
             min-height: 350px;
+
             margin: 0 auto;
 
-            border: 1px solid #999;
-            border-radius: 10px;
+            background-color: #1b1e29;
+
+            border: 2px solid #35394a;
+            border-radius: 12px;
 
             padding: 10px 20px 25px;
+
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.40);
         }
 
-        
+
+        /* TOPO */
 
         .topo {
-            border-bottom: 1px solid #999;
+            border-bottom: 2px solid #35394a;
+
             padding-bottom: 8px;
             margin-bottom: 5px;
         }
@@ -49,104 +67,263 @@
         .topo p {
             font-size: 16px;
             font-weight: bold;
+
+            color: #8be9d0;
+
+            letter-spacing: 2px;
         }
 
-     
+
+        /* CONTEÚDO */
 
         main {
             text-align: center;
         }
 
         h1 {
-            font-size: 48px;
-            margin-top: 5px;
+            font-size: 50px;
+
+            margin-top: 10px;
             margin-bottom: 0;
+
+            color: #f5f3ff;
+
+            letter-spacing: 7px;
+            font-weight: 900;
         }
+
+
+        /* SUBTÍTULO */
 
         .subtitulo {
             font-size: 18px;
             font-weight: bold;
-            margin-top: 5px;
+
+            margin-top: 6px;
+
+            color: #9b8cff;
         }
+
+
+        /* DESCRIÇÃO */
 
         .descricao {
             font-size: 14px;
+
             margin-top: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+
+            color: #b8bdca;
         }
 
-    
+
+        /* MENU */
 
         nav {
             display: flex;
             flex-direction: column;
+
             align-items: center;
-            gap: 8px;
+
+            gap: 11px;
         }
 
         nav a {
             width: 315px;
-            height: 48px;
+            min-height: 52px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
-            gap: 30px;
 
-            background-color: white;
-            color: black;
+            gap: 25px;
 
-            border: 1px solid #777;
-            border-radius: 6px;
+            background-color: #282c3a;
+
+            color: #ffffff;
+
+            border: 2px solid #44495c;
+            border-radius: 7px;
 
             text-decoration: none;
+
             font-size: 18px;
             font-weight: bold;
 
             transition: 0.2s;
         }
 
-        nav a:hover {
-            background-color: #eeeeee;
+
+        /* PRIMEIRO BOTÃO */
+
+        nav a:first-child {
+            border-color: #6957d9;
         }
+
+        nav a:first-child:hover {
+            background-color: #6957d9;
+
+            border-color: #8f80ff;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* SEGUNDO BOTÃO */
+
+        nav a:nth-child(2) {
+            border-color: #398c85;
+        }
+
+        nav a:nth-child(2):hover {
+            background-color: #398c85;
+
+            border-color: #65d4c8;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* CLIQUE */
+
+        nav a:active {
+            transform: translateY(0);
+        }
+
+
+        /* ÍCONES */
 
         .icone {
-            font-size: 25px;
+            width: 32px;
+
+            font-size: 24px;
+
+            display: flex;
+
+            justify-content: center;
         }
 
-        
+
+        /* LINHA */
 
         .linha {
             border: none;
-            border-top: 2px dotted #aaa;
+
+            border-top: 2px dotted #4a5061;
 
             width: 80%;
-            margin: 10px auto;
+
+            margin: 22px auto 16px;
         }
 
-        
+
+        /* INTEGRANTES */
 
         .integrantes {
             margin-top: 5px;
         }
 
         .integrantes h2 {
-            font-size: 14px;
-            margin-bottom: 5px;
+            font-size: 15px;
+
+            margin-bottom: 12px;
+
+            color: #8be9d0;
         }
 
-        .integrantes p {
-            font-size: 14px;
-            margin: 3px;
+
+        /* QUADRO DOS INTEGRANTES */
+
+        .quadro-integrantes {
+            width: 100%;
+            max-width: 620px;
+
+            margin: 0 auto;
+
+            border: 1px solid #414758;
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            background-color: #222631;
         }
 
-        .integrantes span {
-            display: inline-block;
-            width: 110px;
+
+        /* LINHAS */
+
+        .linha-integrante {
+            display: grid;
+
+            grid-template-columns: 1fr 160px;
+
+            align-items: center;
+
+            min-height: 42px;
+
+            border-bottom: 1px solid #3a3f50;
+
+            transition: 0.2s;
+        }
+
+        .linha-integrante:last-child {
+            border-bottom: none;
+        }
+
+        .linha-integrante:hover {
+            background-color: #303545;
+        }
+
+
+        /* NOME E RA */
+
+        .nome-integrante,
+        .ra-integrante {
+            padding: 10px 14px;
+        }
+
+        .nome-integrante {
             text-align: left;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            color: #eeeeff;
+
+            border-right: 1px solid #3a3f50;
         }
 
-    
+        .ra-integrante {
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #aeb6c8;
+        }
+
+
+        /* CABEÇALHO */
+
+        .cabecalho-integrantes {
+            background-color: #302d48;
+        }
+
+        .cabecalho-integrantes .nome-integrante,
+        .cabecalho-integrantes .ra-integrante {
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            color: #a99cff;
+
+            font-weight: bold;
+        }
+
+
+        /* RESPONSIVIDADE */
 
         @media (max-width: 600px) {
 
@@ -154,8 +331,22 @@
                 padding: 15px;
             }
 
+            .container {
+                padding: 10px 15px 20px;
+            }
+
             h1 {
                 font-size: 40px;
+
+                letter-spacing: 4px;
+            }
+
+            .subtitulo {
+                font-size: 16px;
+            }
+
+            .descricao {
+                font-size: 13px;
             }
 
             nav a {
@@ -166,8 +357,15 @@
                 width: 95%;
             }
 
-            .integrantes span {
-                width: auto;
+            .linha-integrante {
+                grid-template-columns: 1fr;
+            }
+
+            .nome-integrante {
+                text-align: center;
+
+                border-right: none;
+                border-bottom: 1px solid #3a3f50;
             }
         }
 
@@ -196,6 +394,7 @@
                 Assista ao sinal em Libras e descubra as palavras certas neste jogo interativo.
             </p>
 
+
             <nav>
 
                 <a href="Jogar.html">
@@ -211,35 +410,83 @@
             </nav>
 
 
-        
-
             <hr class="linha">
-
 
 
             <section class="integrantes">
 
                 <h2>♧ Integrantes do grupo:</h2>
 
-                <p>
-                    <h3>Pedro Schumacker</h3>
-                    RA 10771366
-                </p>
 
-                <p>
-                    <h3>Rafael Jardim</h3>
-                    RA 10771392
-                </p>
+                <div class="quadro-integrantes">
 
-                <p>
-                    <h3>Gabriel Jardim</h3>
-                    RA 10771388
-                </p>
 
-                <p>
-                    <h3>Guilherme Tavora</h3>
-                    RA 10771396
-                </p>
+                    <div class="linha-integrante cabecalho-integrantes">
+
+                        <div class="nome-integrante">
+                            Nome
+                        </div>
+
+                        <div class="ra-integrante">
+                            RA
+                        </div>
+
+                    </div>
+
+
+                    <div class="linha-integrante">
+
+                        <div class="nome-integrante">
+                            Pedro Schumacker
+                        </div>
+
+                        <div class="ra-integrante">
+                            10771366
+                        </div>
+
+                    </div>
+
+
+                    <div class="linha-integrante">
+
+                        <div class="nome-integrante">
+                            Rafael Jardim
+                        </div>
+
+                        <div class="ra-integrante">
+                            10771392
+                        </div>
+
+                    </div>
+
+
+                    <div class="linha-integrante">
+
+                        <div class="nome-integrante">
+                            Gabriel Jardim
+                        </div>
+
+                        <div class="ra-integrante">
+                            10771388
+                        </div>
+
+                    </div>
+
+
+                    <div class="linha-integrante">
+
+                        <div class="nome-integrante">
+                            Guilherme Tavora
+                        </div>
+
+                        <div class="ra-integrante">
+                            10771396
+                        </div>
+
+                    </div>
+
+
+                </div>
 
             </section>
 
