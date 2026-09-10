@@ -1,0 +1,2541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="GESTO - Jogo educativo para aprender Libras de forma divertida.">
+
+    <title>GESTO - Jogo</title>
+
+
+    <style>
+
+        /* =====================================================
+           CONFIGURAÇÕES GERAIS
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --fundo: #11131a;
+            --container: #1b1e29;
+            --painel: #222631;
+            --botao: #282c3a;
+
+            --borda: #35394a;
+            --borda-clara: #44495c;
+
+            --branco: #f5f5f5;
+            --texto: #b8bdca;
+
+            --roxo: #6957d9;
+            --roxo-claro: #9b8cff;
+
+            --verde: #398c85;
+            --verde-claro: #8be9d0;
+
+            --amarelo: #a88632;
+            --amarelo-claro: #d8b84c;
+
+            --vermelho: #a34848;
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        body {
+
+            min-height: 100vh;
+
+            background-color: var(--fundo);
+
+            color: var(--branco);
+
+            font-family:
+                "Trebuchet MS",
+                Arial,
+                sans-serif;
+
+            padding: 20px;
+        }
+
+
+        /* =====================================================
+           CONTAINER PRINCIPAL
+        ===================================================== */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            background-color: var(--container);
+
+            border: 2px solid var(--borda);
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.4);
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           CABEÇALHO
+        ===================================================== */
+
+        header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 12px 22px;
+
+            border-bottom: 2px solid var(--borda);
+        }
+
+
+        header strong {
+
+            color: var(--verde-claro);
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+        }
+
+
+        header p {
+
+            color: var(--texto);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           CONTEÚDO PRINCIPAL
+        ===================================================== */
+
+        main {
+
+            padding: 18px 22px 18px;
+        }
+
+
+        /* =====================================================
+           TÍTULO
+        ===================================================== */
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 15px;
+        }
+
+
+        h1 {
+
+            color: #f5f3ff;
+
+            font-size: clamp(34px, 5vw, 48px);
+
+            letter-spacing: 6px;
+
+            line-height: 1;
+        }
+
+
+        .subtitulo {
+
+            margin-top: 6px;
+
+            color: var(--roxo-claro);
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .status article {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background-color: var(--painel);
+
+            border: 1px solid var(--borda-clara);
+
+            border-radius: 7px;
+
+            padding: 8px 13px;
+        }
+
+
+        .status strong {
+
+            color: var(--texto);
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .status span {
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+
+        .status article:nth-child(2) {
+
+            border-color: var(--verde);
+        }
+
+
+        .status article:nth-child(2) span {
+
+            color: var(--verde-claro);
+        }
+
+
+        .status article:nth-child(3) {
+
+            border-color: var(--roxo);
+        }
+
+
+        .status article:nth-child(3) span {
+
+            color: var(--roxo-claro);
+        }
+
+
+        /* =====================================================
+           ÁREA PRINCIPAL DO JOGO
+        ===================================================== */
+
+        .game {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.35fr)
+                minmax(360px, 0.65fr);
+
+            gap: 15px;
+
+            align-items: start;
+        }
+
+
+        /* =====================================================
+           TABULEIRO
+        ===================================================== */
+
+        .board {
+
+            background-color: var(--painel);
+
+            border: 1px solid var(--borda-clara);
+
+            border-radius: 9px;
+
+            padding: 14px;
+        }
+
+
+        .board > header {
+
+            padding: 0 0 9px;
+
+            margin-bottom: 9px;
+
+            border-bottom: 1px solid var(--borda);
+        }
+
+
+        .board > header h2 {
+
+            color: var(--verde-claro);
+
+            font-size: 15px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           PALAVRAS
+        ===================================================== */
+
+        .words {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 8px;
+        }
+
+
+        .word {
+
+            display: grid;
+
+            gap: 5px;
+        }
+
+
+        .word h3 {
+
+            text-align: center;
+
+            color: var(--roxo-claro);
+
+            background-color: #302d48;
+
+            border: 1px solid var(--borda-clara);
+
+            border-radius: 5px;
+
+            padding: 5px;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           TENTATIVAS
+        ===================================================== */
+
+        .attempts {
+
+            display: grid;
+
+            gap: 5px;
+        }
+
+
+        .attempt {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 4px;
+        }
+
+
+        .letter {
+
+            aspect-ratio: 1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background-color: var(--botao);
+
+            border: 1px solid var(--borda-clara);
+
+            border-radius: 4px;
+
+            color: #eeeeff;
+
+            font-size:
+                clamp(12px, 2vw, 16px);
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        /* =====================================================
+           LETRA PREENCHIDA
+        ===================================================== */
+
+        .letter.filled {
+
+            border-color: var(--roxo);
+
+            background-color: #303545;
+
+            animation:
+                aparecer 0.15s ease;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                transform: scale(0.75);
+
+                opacity: 0.4;
+            }
+
+            to {
+
+                transform: scale(1);
+
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           CORES DO JOGO
+        ===================================================== */
+
+        .letter.correct {
+
+            background-color: var(--verde);
+
+            border-color: var(--verde-claro);
+
+            color: white;
+        }
+
+
+        .letter.present {
+
+            background-color: var(--amarelo);
+
+            border-color: var(--amarelo-claro);
+
+            color: white;
+        }
+
+
+        .letter.wrong {
+
+            background-color: #35394a;
+
+            border-color: #44495c;
+
+            color: #777e91;
+        }
+
+
+        /* =====================================================
+           TECLADO
+        ===================================================== */
+
+        .keyboard-panel {
+
+            background-color: var(--painel);
+
+            border: 1px solid var(--borda-clara);
+
+            border-radius: 9px;
+
+            padding: 14px;
+        }
+
+
+        .keyboard-panel h2 {
+
+            color: var(--roxo-claro);
+
+            text-align: center;
+
+            font-size: 15px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .keyboard {
+
+            display: grid;
+
+            gap: 5px;
+        }
+
+
+        .keyboard-row {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 5px;
+        }
+
+
+        .keyboard button {
+
+            flex: 1;
+
+            max-width: 42px;
+
+            height: 42px;
+
+            border: 1px solid var(--borda-clara);
+
+            border-radius: 5px;
+
+            background-color: var(--botao);
+
+            color: white;
+
+            font-family:
+                "Trebuchet MS",
+                Arial,
+                sans-serif;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.15s;
+        }
+
+
+        .keyboard button:hover {
+
+            background-color: var(--roxo);
+
+            border-color: #8f80ff;
+
+            transform: translateY(-2px);
+        }
+
+
+        .keyboard button:active {
+
+            transform: translateY(0);
+        }
+
+
+        .keyboard button.correct {
+
+            background-color: var(--verde);
+
+            border-color: var(--verde-claro);
+        }
+
+
+        .keyboard button.present {
+
+            background-color: var(--amarelo);
+
+            border-color: var(--amarelo-claro);
+        }
+
+
+        .keyboard button.wrong {
+
+            background-color: #35394a;
+
+            color: #777e91;
+        }
+
+
+        /* =====================================================
+           CONTROLES
+        ===================================================== */
+
+        .controls {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 8px;
+
+            margin-top: 12px;
+        }
+
+
+        .controls button {
+
+            min-height: 42px;
+
+            border-radius: 6px;
+
+            font-family:
+                "Trebuchet MS",
+                Arial,
+                sans-serif;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        /* APAGAR */
+
+        .btn-apagar {
+
+            background-color: transparent;
+
+            color: #ff8b8b;
+
+            border: 2px solid var(--vermelho);
+        }
+
+
+        .btn-apagar:hover {
+
+            background-color: var(--vermelho);
+
+            color: white;
+        }
+
+
+        /* ENVIAR */
+
+        .btn-enviar {
+
+            background-color: var(--verde);
+
+            color: white;
+
+            border: 2px solid var(--verde-claro);
+        }
+
+
+        .btn-enviar:hover {
+
+            background-color: #4aa99f;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           LEGENDA
+        ===================================================== */
+
+        .legend {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 12px;
+
+            padding-top: 10px;
+
+            border-top: 1px solid var(--borda);
+
+            color: var(--texto);
+
+            font-size: 11px;
+        }
+
+
+        .legend span {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .legend i {
+
+            width: 12px;
+
+            height: 12px;
+
+            display: inline-block;
+
+            border-radius: 3px;
+        }
+
+
+        .legend .green {
+
+            background-color: var(--verde);
+
+            border: 1px solid var(--verde-claro);
+        }
+
+
+        .legend .yellow {
+
+            background-color: var(--amarelo);
+
+            border: 1px solid var(--amarelo-claro);
+        }
+
+
+        .legend .gray {
+
+            background-color: #35394a;
+
+            border: 1px solid var(--borda-clara);
+        }
+
+
+        /* =====================================================
+           MENSAGEM
+        ===================================================== */
+
+        #mensagem {
+
+            min-height: 18px;
+
+            margin-top: 8px;
+
+            text-align: center;
+
+            color: var(--verde-claro);
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        footer {
+
+            margin-top: 14px;
+
+            padding-top: 10px;
+
+            border-top: 1px dotted #4a5061;
+
+            text-align: center;
+
+            color: #777e91;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            body {
+
+                padding: 12px;
+            }
+
+
+            .game {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .keyboard-panel {
+
+                order: 2;
+            }
+
+
+            .board {
+
+                order: 1;
+            }
+
+
+            .keyboard {
+
+                max-width: 600px;
+
+                margin: auto;
+            }
+        }
+
+
+        /* =====================================================
+           CELULAR
+           
+           Ajustado especialmente para:
+           iPhone 6 / 7 / 8
+           375px de largura
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            /*
+             * Antes havia muito espaço ao redor.
+             * Agora o jogo aproveita praticamente
+             * toda a largura da tela.
+             */
+
+            body {
+
+                padding: 3px;
+
+                min-height: 100vh;
+
+                background-color: var(--container);
+            }
+
+
+            /*
+             * O container ocupa a tela inteira.
+             * Isso elimina aquele espaço preto
+             * sobrando embaixo.
+             */
+
+            .container {
+
+                width: 100%;
+
+                min-height: calc(100vh - 6px);
+
+                border: 1px solid var(--borda);
+
+                border-radius: 7px;
+
+                box-shadow:
+                    0 4px 15px rgba(0, 0, 0, 0.35);
+            }
+
+
+            /*
+             * Cabeçalho mais compacto.
+             */
+
+            header {
+
+                padding: 8px 12px;
+
+                min-height: 34px;
+            }
+
+
+            header strong {
+
+                font-size: 14px;
+
+                letter-spacing: 2px;
+            }
+
+
+            header p {
+
+                display: none;
+            }
+
+
+            /*
+             * Conteúdo usa mais espaço horizontal.
+             */
+
+            main {
+
+                padding: 9px 8px 10px;
+            }
+
+
+            /*
+             * Título um pouco maior.
+             */
+
+            .titulo {
+
+                margin-bottom: 10px;
+            }
+
+
+            h1 {
+
+                font-size: 34px;
+
+                letter-spacing: 5px;
+            }
+
+
+            .subtitulo {
+
+                font-size: 12px;
+
+                margin-top: 5px;
+            }
+
+
+            /*
+             * Status mais compacto.
+             */
+
+            .status {
+
+                gap: 5px;
+
+                margin-bottom: 9px;
+            }
+
+
+            .status article {
+
+                padding: 6px 5px;
+
+                flex-direction: column;
+
+                gap: 2px;
+
+                justify-content: center;
+
+                min-height: 42px;
+            }
+
+
+            .status strong {
+
+                font-size: 8px;
+
+                letter-spacing: 0.5px;
+            }
+
+
+            .status span {
+
+                font-size: 16px;
+            }
+
+
+            /*
+             * Jogo continua empilhado no celular.
+             */
+
+            .game {
+
+                display: grid;
+
+                grid-template-columns: 1fr;
+
+                gap: 8px;
+            }
+
+
+            /*
+             * Tabuleiro.
+             */
+
+            .board {
+
+                padding: 9px;
+
+                border-radius: 7px;
+            }
+
+
+            .board > header {
+
+                margin-bottom: 7px;
+
+                padding-bottom: 6px;
+            }
+
+
+            .board > header h2 {
+
+                font-size: 13px;
+            }
+
+
+            /*
+             * As quatro palavras usam
+             * praticamente toda a largura.
+             */
+
+            .words {
+
+                grid-template-columns:
+                    repeat(4, 1fr);
+
+                gap: 4px;
+            }
+
+
+            .word {
+
+                gap: 3px;
+            }
+
+
+            .word h3 {
+
+                font-size: 7px;
+
+                padding: 4px 1px;
+
+                border-radius: 4px;
+            }
+
+
+            /*
+             * Casas um pouco maiores.
+             */
+
+            .attempts {
+
+                gap: 3px;
+            }
+
+
+            .attempt {
+
+                gap: 3px;
+            }
+
+
+            .letter {
+
+                min-width: 0;
+
+                width: 100%;
+
+                aspect-ratio: 0.95;
+
+                font-size: 12px;
+
+                border-radius: 3px;
+            }
+
+
+            /*
+             * Teclado.
+             */
+
+            .keyboard-panel {
+
+                padding: 9px;
+
+                border-radius: 7px;
+            }
+
+
+            .keyboard-panel h2 {
+
+                font-size: 13px;
+
+                margin-bottom: 7px;
+            }
+
+
+            .keyboard {
+
+                gap: 4px;
+
+                width: 100%;
+            }
+
+
+            .keyboard-row {
+
+                gap: 4px;
+
+                width: 100%;
+            }
+
+
+            /*
+             * Agora as teclas aproveitam
+             * toda a largura disponível.
+             */
+
+            .keyboard button {
+
+                flex: 1;
+
+                width: auto;
+
+                max-width: none;
+
+                height: 36px;
+
+                min-width: 0;
+
+                padding: 0;
+
+                font-size: 11px;
+
+                border-radius: 4px;
+            }
+
+
+            /*
+             * Botões de ação.
+             */
+
+            .controls {
+
+                margin-top: 7px;
+
+                gap: 6px;
+            }
+
+
+            .controls button {
+
+                min-height: 37px;
+
+                font-size: 11px;
+
+                border-radius: 5px;
+            }
+
+
+            /*
+             * Mensagem.
+             */
+
+            #mensagem {
+
+                min-height: 16px;
+
+                margin-top: 6px;
+
+                font-size: 11px;
+            }
+
+
+            /*
+             * Legenda.
+             */
+
+            .legend {
+
+                gap: 8px;
+
+                margin-top: 7px;
+
+                padding-top: 6px;
+
+                font-size: 9px;
+            }
+
+
+            .legend i {
+
+                width: 9px;
+
+                height: 9px;
+            }
+
+
+            /*
+             * Rodapé menor para não criar
+             * espaço desnecessário.
+             */
+
+            footer {
+
+                margin-top: 7px;
+
+                padding-top: 6px;
+
+                font-size: 9px;
+            }
+        }
+
+
+        /* =====================================================
+           IPHONE 6 / IPHONE 7 / IPHONE 8
+           
+           Largura aproximada: 375px
+        ===================================================== */
+
+        @media (max-width: 390px) {
+
+            body {
+
+                padding: 2px;
+            }
+
+
+            .container {
+
+                min-height: calc(100vh - 4px);
+
+                border-radius: 6px;
+            }
+
+
+            main {
+
+                padding:
+                    8px 7px 8px;
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+                letter-spacing: 4px;
+            }
+
+
+            .subtitulo {
+
+                font-size: 11px;
+            }
+
+
+            .status {
+
+                margin-bottom: 8px;
+            }
+
+
+            .status article {
+
+                min-height: 40px;
+
+                padding: 5px 3px;
+            }
+
+
+            .status strong {
+
+                font-size: 7px;
+            }
+
+
+            .status span {
+
+                font-size: 15px;
+            }
+
+
+            .board {
+
+                padding: 8px;
+            }
+
+
+            .words {
+
+                gap: 3px;
+            }
+
+
+            .word h3 {
+
+                font-size: 6.5px;
+
+                padding: 4px 0;
+            }
+
+
+            .attempts {
+
+                gap: 3px;
+            }
+
+
+            .attempt {
+
+                gap: 3px;
+            }
+
+
+            .letter {
+
+                font-size: 11px;
+
+                aspect-ratio: 0.92;
+            }
+
+
+            .keyboard-panel {
+
+                padding: 8px;
+            }
+
+
+            .keyboard-panel h2 {
+
+                font-size: 12px;
+
+                margin-bottom: 6px;
+            }
+
+
+            .keyboard {
+
+                gap: 3px;
+            }
+
+
+            .keyboard-row {
+
+                gap: 3px;
+            }
+
+
+            .keyboard button {
+
+                height: 35px;
+
+                font-size: 10px;
+            }
+
+
+            .controls {
+
+                gap: 5px;
+
+                margin-top: 6px;
+            }
+
+
+            .controls button {
+
+                min-height: 36px;
+
+                font-size: 10px;
+            }
+
+
+            #mensagem {
+
+                font-size: 10px;
+
+                margin-top: 5px;
+            }
+
+
+            .legend {
+
+                gap: 6px;
+
+                font-size: 8px;
+
+                margin-top: 5px;
+
+                padding-top: 5px;
+            }
+
+
+            .legend i {
+
+                width: 8px;
+
+                height: 8px;
+            }
+
+
+            footer {
+
+                font-size: 8px;
+
+                margin-top: 5px;
+
+                padding-top: 5px;
+            }
+        }
+
+
+        /* =====================================================
+           CELULARES MUITO PEQUENOS
+        ===================================================== */
+
+        @media (max-width: 360px) {
+
+            main {
+
+                padding:
+                    7px 6px;
+            }
+
+
+            h1 {
+
+                font-size: 29px;
+
+                letter-spacing: 3px;
+            }
+
+
+            .subtitulo {
+
+                font-size: 10px;
+            }
+
+
+            .status article {
+
+                min-height: 38px;
+            }
+
+
+            .status strong {
+
+                font-size: 6.5px;
+            }
+
+
+            .status span {
+
+                font-size: 14px;
+            }
+
+
+            .board {
+
+                padding: 7px;
+            }
+
+
+            .word h3 {
+
+                font-size: 6px;
+            }
+
+
+            .letter {
+
+                font-size: 10px;
+            }
+
+
+            .keyboard-panel {
+
+                padding: 7px;
+            }
+
+
+            .keyboard button {
+
+                height: 32px;
+
+                font-size: 9px;
+            }
+
+
+            .controls button {
+
+                min-height: 34px;
+
+                font-size: 9px;
+            }
+
+
+            .legend {
+
+                font-size: 7px;
+            }
+
+
+            footer {
+
+                font-size: 7px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <article class="container">
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <header>
+
+            <strong>GESTO</strong>
+
+            <p>
+                Aprenda Libras jogando
+            </p>
+
+        </header>
+
+
+        <main>
+
+
+            <!-- =================================================
+                 TÍTULO
+            ================================================== -->
+
+            <section class="titulo">
+
+                <h1>GESTO</h1>
+
+                <p class="subtitulo">
+                    Descubra as palavras em 6 tentativas
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATUS DO JOGO
+            ================================================== -->
+
+            <section
+                class="status"
+                aria-label="Informações da partida">
+
+
+                <article>
+
+                    <strong>Pontuação</strong>
+
+                    <span id="pontuacao">
+                        0
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <strong>Tentativas</strong>
+
+                    <span id="contador">
+                        0/6
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <strong>Dicas</strong>
+
+                    <span id="dicas">
+                        3
+                    </span>
+
+                </article>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 ÁREA DO JOGO
+            ================================================== -->
+
+            <section
+                class="game"
+                aria-label="Área principal do jogo">
+
+
+                <!-- =================================================
+                     TABULEIRO
+                ================================================== -->
+
+                <section class="board">
+
+
+                    <header>
+
+                        <h2>
+                            Palavras
+                        </h2>
+
+                    </header>
+
+
+                    <section class="words">
+
+
+                        <!-- ================================
+                             PALAVRA 1
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 1
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                        <!-- ================================
+                             PALAVRA 2
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 2
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                        <!-- ================================
+                             PALAVRA 3
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 3
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                        <!-- ================================
+                             PALAVRA 4
+                        ================================= -->
+
+                        <article class="word">
+
+                            <h3>
+                                Palavra 4
+                            </h3>
+
+
+                            <section class="attempts">
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                                <section class="attempt">
+
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+                                    <span class="letter"></span>
+
+                                </section>
+
+
+                            </section>
+
+                        </article>
+
+
+                    </section>
+
+                </section>
+
+
+                <!-- =================================================
+                     TECLADO
+                ================================================== -->
+
+                <section class="keyboard-panel">
+
+
+                    <h2>
+                        Escolha as letras
+                    </h2>
+
+
+                    <section
+                        class="keyboard"
+                        aria-label="Teclado de letras">
+
+
+                        <!-- PRIMEIRA LINHA -->
+
+                        <nav class="keyboard-row">
+
+                            <button type="button">Q</button>
+                            <button type="button">W</button>
+                            <button type="button">E</button>
+                            <button type="button">R</button>
+                            <button type="button">T</button>
+                            <button type="button">Y</button>
+                            <button type="button">U</button>
+                            <button type="button">I</button>
+                            <button type="button">O</button>
+                            <button type="button">P</button>
+
+                        </nav>
+
+
+                        <!-- SEGUNDA LINHA -->
+
+                        <nav class="keyboard-row">
+
+                            <button type="button">A</button>
+                            <button type="button">S</button>
+                            <button type="button">D</button>
+                            <button type="button">F</button>
+                            <button type="button">G</button>
+                            <button type="button">H</button>
+                            <button type="button">J</button>
+                            <button type="button">K</button>
+                            <button type="button">L</button>
+
+                        </nav>
+
+
+                        <!-- TERCEIRA LINHA -->
+
+                        <nav class="keyboard-row">
+
+                            <button type="button">Z</button>
+                            <button type="button">X</button>
+                            <button type="button">C</button>
+                            <button type="button">V</button>
+                            <button type="button">B</button>
+                            <button type="button">N</button>
+                            <button type="button">M</button>
+
+                        </nav>
+
+
+                    </section>
+
+
+                    <!-- =================================================
+                         CONTROLES
+                    ================================================== -->
+
+                    <form class="controls">
+
+                        <button
+                            type="reset"
+                            class="btn-apagar">
+
+                            Apagar
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn-enviar">
+
+                            Enviar
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- =================================================
+                         MENSAGEM
+                    ================================================== -->
+
+                    <p
+                        id="mensagem"
+                        aria-live="polite">
+                    </p>
+
+
+                    <!-- =================================================
+                         LEGENDA
+                    ================================================== -->
+
+                    <aside class="legend">
+
+                        <span>
+
+                            <i class="green"></i>
+
+                            Correta
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="yellow"></i>
+
+                            Outra posição
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="gray"></i>
+
+                            Ausente
+
+                        </span>
+
+                    </aside>
+
+
+                </section>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 RODAPÉ
+            ================================================== -->
+
+            <footer>
+
+                Use as letras para descobrir as 4 palavras.
+                Você tem 6 tentativas.
+
+            </footer>
+
+
+        </main>
+
+    </article>
+
+
+    <script>
+
+        /* =====================================================
+           PALAVRAS DO JOGO
+        ===================================================== */
+
+        const palavras = [
+
+            "CASA",
+            "LIVR",
+            "AMOR",
+            "SINA"
+
+        ];
+
+
+        /* =====================================================
+           ELEMENTOS DA PÁGINA
+        ===================================================== */
+
+        const teclado =
+            document.querySelectorAll(
+                ".keyboard button"
+            );
+
+
+        const letras =
+            document.querySelectorAll(
+                ".letter"
+            );
+
+
+        const enviar =
+            document.querySelector(
+                ".btn-enviar"
+            );
+
+
+        const apagar =
+            document.querySelector(
+                ".btn-apagar"
+            );
+
+
+        const contador =
+            document.querySelector(
+                "#contador"
+            );
+
+
+        const pontuacao =
+            document.querySelector(
+                "#pontuacao"
+            );
+
+
+        const mensagem =
+            document.querySelector(
+                "#mensagem"
+            );
+
+
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
+        let tentativaAtual = 0;
+
+        let palavraAtual = 0;
+
+        let letrasDigitadas = [];
+
+        let pontos = 0;
+
+
+        /* =====================================================
+           ENCONTRAR AS CASAS DA TENTATIVA ATUAL
+        ===================================================== */
+
+        function encontrarCasasAtuais() {
+
+            const inicio =
+                tentativaAtual * 4;
+
+            const fim =
+                inicio + 4;
+
+            return Array.from(
+                letras
+            ).slice(
+                inicio,
+                fim
+            );
+        }
+
+
+        /* =====================================================
+           ATUALIZAR TABULEIRO
+        ===================================================== */
+
+        function atualizarTabuleiro() {
+
+            const casas =
+                encontrarCasasAtuais();
+
+
+            casas.forEach(
+                (casa, indice) => {
+
+                    casa.textContent =
+                        letrasDigitadas[indice]
+                        || "";
+
+
+                    casa.classList.toggle(
+                        "filled",
+                        Boolean(
+                            letrasDigitadas[indice]
+                        )
+                    );
+
+                }
+            );
+        }
+
+
+        /* =====================================================
+           ADICIONAR LETRA
+        ===================================================== */
+
+        function adicionarLetra(letra) {
+
+            if (
+                letrasDigitadas.length >= 4
+                ||
+                tentativaAtual >= 6
+            ) {
+
+                return;
+            }
+
+
+            letrasDigitadas.push(
+                letra
+            );
+
+
+            atualizarTabuleiro();
+        }
+
+
+        /* =====================================================
+           CLICAR NO TECLADO
+        ===================================================== */
+
+        teclado.forEach(
+            botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        adicionarLetra(
+                            botao.textContent
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           TECLADO FÍSICO
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            evento => {
+
+                const tecla =
+                    evento.key.toUpperCase();
+
+
+                if (
+                    /^[A-Z]$/.test(tecla)
+                ) {
+
+                    adicionarLetra(
+                        tecla
+                    );
+                }
+
+
+                if (
+                    evento.key === "Backspace"
+                ) {
+
+                    removerLetra();
+                }
+
+
+                if (
+                    evento.key === "Enter"
+                ) {
+
+                    verificarTentativa();
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           REMOVER LETRA
+        ===================================================== */
+
+        function removerLetra() {
+
+            letrasDigitadas.pop();
+
+            atualizarTabuleiro();
+        }
+
+
+        /* =====================================================
+           BOTÃO APAGAR
+        ===================================================== */
+
+        apagar.addEventListener(
+            "click",
+            evento => {
+
+                evento.preventDefault();
+
+                removerLetra();
+
+            }
+        );
+
+
+        /* =====================================================
+           BOTÃO ENVIAR
+        ===================================================== */
+
+        enviar.addEventListener(
+            "click",
+            evento => {
+
+                evento.preventDefault();
+
+                verificarTentativa();
+
+            }
+        );
+
+
+        /* =====================================================
+           VERIFICAR TENTATIVA
+        ===================================================== */
+
+        function verificarTentativa() {
+
+            if (
+                letrasDigitadas.length !== 4
+            ) {
+
+                mensagem.textContent =
+                    "Digite 4 letras antes de enviar.";
+
+                return;
+            }
+
+
+            const tentativa =
+                letrasDigitadas.join("");
+
+
+            const palavra =
+                palavras[palavraAtual];
+
+
+            const casas =
+                encontrarCasasAtuais();
+
+
+            casas.forEach(
+                (casa, indice) => {
+
+                    const letra =
+                        tentativa[indice];
+
+
+                    if (
+                        letra ===
+                        palavra[indice]
+                    ) {
+
+                        casa.classList.add(
+                            "correct"
+                        );
+
+                    }
+
+                    else if (
+                        palavra.includes(
+                            letra
+                        )
+                    ) {
+
+                        casa.classList.add(
+                            "present"
+                        );
+
+                    }
+
+                    else {
+
+                        casa.classList.add(
+                            "wrong"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =================================================
+               PALAVRA CORRETA
+            ================================================= */
+
+            if (
+                tentativa === palavra
+            ) {
+
+                pontos += 100;
+
+                pontuacao.textContent =
+                    pontos;
+
+
+                mensagem.textContent =
+                    "Muito bem! Palavra correta!";
+
+
+                palavraAtual++;
+
+            }
+
+            else {
+
+                mensagem.textContent =
+                    "Continue tentando!";
+            }
+
+
+            tentativaAtual++;
+
+
+            contador.textContent =
+                `${tentativaAtual}/6`;
+
+
+            letrasDigitadas = [];
+
+
+            /* =================================================
+               FINAL DO JOGO
+            ================================================= */
+
+            if (
+                palavraAtual >=
+                palavras.length
+            ) {
+
+                mensagem.textContent =
+                    "🎉 Parabéns! Você completou o GESTO!";
+
+
+                bloquearTeclado();
+
+                return;
+            }
+
+
+            if (
+                tentativaAtual >= 6
+            ) {
+
+                mensagem.textContent =
+                    "Fim das tentativas!";
+
+
+                bloquearTeclado();
+            }
+
+        }
+
+
+        /* =====================================================
+           BLOQUEAR TECLADO
+        ===================================================== */
+
+        function bloquearTeclado() {
+
+            teclado.forEach(
+                botao => {
+
+                    botao.disabled = true;
+
+                }
+            );
+
+
+            enviar.disabled = true;
+        }
+
+
+        /* =====================================================
+           INICIALIZAÇÃO
+        ===================================================== */
+
+        atualizarTabuleiro();
+
+    </script>
+
+
+</body>
+
+</html>
