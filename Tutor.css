@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background-color: #11131a;
+    color: #f5f5f5;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    background-color: #1b1e29;
+    border: 2px solid #35394a;
+    border-radius: 12px;
+    padding: 10px 20px 22px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.40);
+}
+
+.topo {
+    border-bottom: 2px solid #35394a;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+
+.topo .atalho-menu {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8be9d0;
+    letter-spacing: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.topo .atalho-menu:hover,
+.topo .atalho-menu:focus-visible {
+    text-decoration: underline;
+}
+
+.topo p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8be9d0;
+    letter-spacing: 2px;
+}
+
+.progresso-area {
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto 10px;
+    display: grid;
+    grid-template-columns: 160px 1fr 64px;
+    gap: 12px;
+    align-items: center;
+}
+
+.progresso-texto,
+.progresso-contador {
+    font-size: 14px;
+    color: #f5f5f5;
+}
+
+.progresso-contador {
+    text-align: right;
+    font-weight: bold;
+}
+
+.barra-progresso {
+    height: 18px;
+    border: 2px solid #44495c;
+    border-radius: 999px;
+    background-color: #222631;
+    overflow: hidden;
+}
+
+.barra-preenchida {
+    width: 3.85%;
+    height: 100%;
+    background: linear-gradient(90deg, #6957d9 0%, #8f80ff 100%);
+    transition: width 0.25s ease;
+}
+
+.conteudo-tutorial {
+    text-align: center;
+}
+
+.titulo {
+    margin-bottom: 10px;
+}
+
+.titulo h1 {
+    font-size: 42px;
+    color: #f5f3ff;
+    letter-spacing: 2px;
+    font-weight: 900;
+    margin-bottom: 3px;
+}
+
+.titulo p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9b8cff;
+}
+
+.sinal {
+    width: 100%;
+    max-width: 460px;
+    min-height: 140px;
+    margin: 0 auto 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222631;
+    border: 2px solid #44495c;
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+}
+
+.sinal img {
+    max-width: 140px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.form-tutorial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resposta {
+    border: none;
+    padding: 0;
+    margin-bottom: 14px;
+}
+
+.resposta input {
+    width: 48px;
+    height: 48px;
+    background-color: #282c3a;
+    color: #ffffff;
+    border: 2px solid #44495c;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    outline: none;
+}
+
+.teclado {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 10px 12px;
+    background-color: #222631;
+    border: 1px solid #414758;
+    border-radius: 10px;
+}
+
+.linha-teclado {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 6px 0;
+}
+
+.teclado button {
+    min-width: 56px;
+    height: 40px;
+    background-color: #282c3a;
+    color: #ffffff;
+    border: 2px solid #44495c;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.teclado button:hover,
+.teclado button:focus-visible {
+    background-color: #6957d9;
+    border-color: #8f80ff;
+    transform: translateY(-2px);
+}
+
+.teclado button:active {
+    transform: translateY(0);
+}
+
+.teclado button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.tecla-especial {
+    min-width: 62px;
+}
+
+.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-top: 16px;
+}
+
+.botao-acao {
+    min-width: 170px;
+    padding: 11px 22px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-acao:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.botao-dica {
+    background-color: #282c3a;
+    color: #ffffff;
+    border: 2px solid #398c85;
+}
+
+.botao-dica:hover {
+    background-color: #398c85;
+    border-color: #65d4c8;
+}
+
+.botao-verificar {
+    background-color: #6957d9;
+    color: #ffffff;
+    border: 2px solid #8f80ff;
+}
+
+.botao-verificar:hover {
+    background-color: #7b69eb;
+}
+
+.mensagem {
+    min-height: 24px;
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
+    color: #8be9d0;
+    font-weight: bold;
+}
+
+.rodape-tutorial {
+    margin-top: 14px;
+    text-align: center;
+}
+
+.rodape-tutorial p {
+    font-size: 14px;
+    color: #b8bdca;
+    line-height: 1.5;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 10px 12px 18px;
+    }
+
+    .progresso-area {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .progresso-texto,
+    .progresso-contador {
+        text-align: center;
+    }
+
+    .titulo h1 {
+        font-size: 34px;
+    }
+
+    .titulo p {
+        font-size: 16px;
+    }
+
+    .sinal {
+        min-height: 130px;
+    }
+
+    .teclado {
+        padding: 10px 6px;
+    }
+
+    .teclado button {
+        min-width: 44px;
+        height: 38px;
+        font-size: 13px;
+    }
+
+    .acoes {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .botao-acao {
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
+/* FEEDBACKS E ANIMAÇÕES CONTROLADAS PELO JAVASCRIPT */
+body {
+    overflow-x: hidden;
+}
+
+.tutorial-erro {
+    animation: tutorialErro 0.62s ease;
+}
+
+.tutorial-acerto {
+    animation: tutorialAcerto 0.65s ease;
+}
+
+.tutorial-concluido {
+    animation: tutorialConcluido 0.95s ease;
+}
+
+.resposta input.resposta-erro {
+    border-color: #ff7474;
+    background-color: #4a282e;
+    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.18);
+}
+
+.resposta input.resposta-certa {
+    border-color: #65d4c8;
+    background-color: #26413d;
+    box-shadow: 0 0 0 3px rgba(101, 212, 200, 0.18);
+}
+
+.input-shake {
+    animation: inputShake 0.52s ease;
+}
+
+.sinal-troca {
+    animation: sinalTroca 0.43s ease;
+}
+
+.tecla-pulse {
+    animation: teclaPulse 0.35s ease;
+}
+
+@keyframes tutorialErro {
+    0%, 100% {
+        transform: translateX(0);
+        border-color: #35394a;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.40);
+    }
+    15% {
+        transform: translateX(-7px);
+        border-color: #ff5d67;
+        box-shadow: 0 0 24px rgba(255, 71, 87, 0.45);
+    }
+    30% { transform: translateX(7px); }
+    45% {
+        transform: translateX(-6px);
+        background-color: #2b1c22;
+        box-shadow: 0 0 32px rgba(255, 71, 87, 0.55);
+    }
+    60% { transform: translateX(6px); }
+    75% {
+        transform: translateX(-3px);
+        border-color: #ff5d67;
+    }
+    90% { transform: translateX(3px); }
+}
+
+@keyframes tutorialAcerto {
+    0%, 100% {
+        transform: scale(1);
+        border-color: #35394a;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.40);
+    }
+    45% {
+        transform: scale(1.012);
+        border-color: #65d4c8;
+        box-shadow: 0 0 26px rgba(101, 212, 200, 0.32);
+    }
+}
+
+@keyframes tutorialConcluido {
+    0%, 100% { transform: scale(1); }
+    40% {
+        transform: scale(1.018);
+        border-color: #8f80ff;
+        box-shadow: 0 0 30px rgba(143, 128, 255, 0.34);
+    }
+}
+
+@keyframes inputShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-3px); }
+}
+
+@keyframes sinalTroca {
+    from { opacity: 0.3; transform: scale(0.84) rotate(-2deg); }
+    to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes teclaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@media (max-width: 600px) {
+    body { padding: 4px; background-color: #11131a; }
+
+    .container {
+        width: 100%;
+        padding: 9px 8px 16px;
+        border-radius: 8px;
+    }
+
+    .progresso-area {
+        max-width: 100%;
+        grid-template-columns: 1fr auto;
+        gap: 6px 10px;
+    }
+
+    .progresso-texto { text-align: left; }
+    .progresso-contador { text-align: right; }
+    .barra-progresso { grid-column: 1 / -1; grid-row: 2; height: 16px; }
+
+    .titulo h1 { font-size: 32px; }
+    .titulo p { font-size: 14px; }
+
+    .sinal {
+        max-width: 100%;
+        min-height: 120px;
+        padding: 10px;
+    }
+
+    .sinal img { max-width: 125px; max-height: 92px; }
+
+    .resposta input {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .linha-teclado {
+        gap: 5px;
+        margin: 5px 0;
+    }
+
+    .teclado button {
+        min-width: 44px;
+        min-height: 44px;
+        height: 44px;
+        touch-action: manipulation;
+    }
+
+    .acoes {
+        width: 100%;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .botao-acao {
+        flex: 1;
+        min-width: 0;
+        max-width: none;
+        min-height: 46px;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    .teclado { padding: 8px 4px; }
+    .teclado button { min-width: 40px; height: 42px; font-size: 12px; }
+    .tecla-especial { min-width: 46px; }
+    .acoes { flex-direction: column; }
+    .botao-acao { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
